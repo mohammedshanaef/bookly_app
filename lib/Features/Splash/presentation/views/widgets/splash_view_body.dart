@@ -2,9 +2,7 @@ import 'package:bookly_app/Features/Splash/presentation/views/widgets/sliding_te
 import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utils/assets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
