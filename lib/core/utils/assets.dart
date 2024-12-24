@@ -3,4 +3,5 @@
 class AssetData {
   static const logo = 'assets/images/logo.svg';
   static const jungleBook = 'assets/images/jungle_book.svg';
+  static const harryPotterBook = 'assets/images/harrypotter_book.svg';
 }

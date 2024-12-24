@@ -23,3 +23,13 @@ class BooklyApp extends StatelessWidget {
     );
   }
 }
+
+// Pro Tip 
+// theme: ThemeData(
+//   textTheme: GoogleFonts.montserratTextTheme().copyWith(
+//     headline1: TextStyle(fontSize: 32, color: Colors.red),
+//     bodyText1: TextStyle(fontSize: 18, color: Colors.grey),
+//   ),
+// ),
+// if you have big project and you need control
+
