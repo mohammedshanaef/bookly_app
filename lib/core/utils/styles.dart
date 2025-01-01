@@ -10,7 +10,6 @@ abstract class Styles {
   static const textStyle20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.normal,
-    fontFamily: kGtSectraFine,
   );
 
   static const textStyle30 = TextStyle(
@@ -28,7 +27,7 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 
-  ///  Dynamic TextStyle Method
+  ///  Dynamic TextStyle Method For Customization 
   static TextStyle dynamicTextStyle({
     double fontSize = 16,
     FontWeight fontWeight = FontWeight.normal,
