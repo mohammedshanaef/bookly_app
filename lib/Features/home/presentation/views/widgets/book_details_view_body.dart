@@ -1,3 +1,9 @@
+import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_list_view_item.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_detail_app_bar.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
+import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/helper.dart';
 import 'package:flutter/material.dart';
 
 class BookDetalisViewBody extends StatelessWidget {
@@ -5,28 +11,41 @@ class BookDetalisViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 31),
+    var width = context.screenWidth;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 31),
       child: Column(
         children: [
-          CustomBookDetailAppBar(),
+          const CustomBookDetailAppBar(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: width * .19),
+            child: const CustomBookImage(),
+          ),
+          const SizedBox(
+            height: 43,
+          ),
+          Text(
+            'The Jungle Book',
+            style: Styles.textStyle30.copyWith(fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Text(
+            'Rudyard Kipling',
+            style: Styles.textStyle18.copyWith(
+              fontStyle: FontStyle.italic,
+              color: Colors.grey,
+            ),
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
+          ),
         ],
       ),
-    );
-  }
-}
-
-class CustomBookDetailAppBar extends StatelessWidget {
-  const CustomBookDetailAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.close)),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined)),
-      ],
     );
   }
 }
