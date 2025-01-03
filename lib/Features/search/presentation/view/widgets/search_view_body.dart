@@ -26,9 +26,12 @@ class CustomSearchTextField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         hintText: 'Search Here',
-        suffixIcon: const Icon(
-          FontAwesomeIcons.magnifyingGlass,
-          size: 20,
+        suffixIcon: const Opacity(
+          opacity: 0.8,
+          child: Icon(
+            FontAwesomeIcons.magnifyingGlass,
+            size: 20,
+          ),
         ),
         hintStyle: Styles.textStyle16,
         enabledBorder: builtInputBorder(),
