@@ -1,6 +1,7 @@
+import 'package:bookly_app/Features/search/presentation/view/widgets/custom_search_list_view.dart';
+import 'package:bookly_app/Features/search/presentation/view/widgets/search_list_view.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -10,42 +11,31 @@ class SearchViewBody extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomSearchTextField(),
+          SizedBox(
+            height: 16,
+          ),
+          Text(
+            'Search Result',
+            style: Styles.textStyle18,
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          Expanded(child: SeachListView()),
         ],
       ),
     );
   }
 }
 
-class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        hintText: 'Search Here',
-        suffixIcon: const Opacity(
-          opacity: 0.8,
-          child: Icon(
-            FontAwesomeIcons.magnifyingGlass,
-            size: 20,
-          ),
-        ),
-        hintStyle: Styles.textStyle16,
-        enabledBorder: builtInputBorder(),
-        focusedBorder: builtInputBorder(),
-      ),
-    );
-  }
-
-  OutlineInputBorder builtInputBorder() {
-    return OutlineInputBorder(
-      borderSide: BorderSide(
-        color: Colors.white,
-      ),
-      borderRadius: BorderRadius.circular(12),
-    );
-  }
+OutlineInputBorder builtInputBorder() {
+  return OutlineInputBorder(
+    borderSide: const BorderSide(
+      color: Colors.white,
+    ),
+    borderRadius: BorderRadius.circular(12),
+  );
 }
