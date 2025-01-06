@@ -27,7 +27,7 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 
-  ///  Dynamic TextStyle Method For Customization 
+  ///  Dynamic TextStyle Method For Customization
   static TextStyle dynamicTextStyle({
     double fontSize = 16,
     FontWeight fontWeight = FontWeight.normal,

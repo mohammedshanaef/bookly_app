@@ -31,4 +31,3 @@ class BooklyApp extends StatelessWidget {
 //   ),
 // ),
 // if you have big project and you need control
-

@@ -43,14 +43,16 @@ class BestSellerListViewItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: context.screenWidth * .5, // Width dynamically adjusts based on screen size
+                    width: context.screenWidth *
+                        .5, // Width dynamically adjusts based on screen size
                     child: Text(
                       'Harry Potter and the Goblet of Fire',
                       style: Styles.textStyle20.copyWith(
                         fontFamily: kGtSectraFine,
                       ),
                       maxLines: 2,
-                      overflow: TextOverflow.ellipsis, // Adds "..." if text overflows two lines
+                      overflow: TextOverflow
+                          .ellipsis, // Adds "..." if text overflows two lines
                     ),
                   ),
                   const SizedBox(
@@ -67,7 +69,8 @@ class BestSellerListViewItem extends StatelessWidget {
                     children: [
                       Text(
                         '19.99 €',
-                        style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),
+                        style: Styles.textStyle20
+                            .copyWith(fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
                       const BookRating(),
