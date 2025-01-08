@@ -3,6 +3,7 @@ import 'package:bookly_app/Features/home/data/repos/home_repo.dart';
 import 'package:bookly_app/core/errors/failures.dart';
 import 'package:bookly_app/core/utils/api_service.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
@@ -21,12 +22,14 @@ class HomeRepoImpl implements HomeRepo {
           books.add(BookModel.fromJson(item));
         }
         return right(books);
-      } else {
-        return left(ServerError(message: 'No items found in response'));
       }
+
+      return left(ServerFailure('No books found.'));
     } catch (e) {
-      print('Error fetching newest books: $e');
-      return left(ServerError(message: e.toString()));
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
