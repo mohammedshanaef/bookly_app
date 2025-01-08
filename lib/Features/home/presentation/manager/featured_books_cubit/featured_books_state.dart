@@ -6,6 +6,8 @@ abstract class FeaturedBooksState extends Equatable {
   List<Object> get props => [];
 }
 
+class FeaturedBooksInitial extends FeaturedBooksState {}
+
 class FeaturedBooksLoading extends FeaturedBooksState {}
 
 class FeaturedBooksSuccess extends FeaturedBooksState {
