@@ -16,7 +16,9 @@ class BookDetailsSection extends StatelessWidget {
         const CustomBookDetailAppBar(),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .19),
-          child: const CustomBookImage(),
+          child: const CustomBookImage(
+            imageUrl: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
+          ),
         ),
         const SizedBox(height: 43),
         Text(

@@ -19,9 +19,11 @@ class FeaturedBooksListView extends StatelessWidget {
             height: context.screenHeight * 0.28,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: state.books.length, // إضافة itemCount
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return const CustomBookImage();
+                return CustomBookImage(
+                  imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                );
               },
             ),
           );

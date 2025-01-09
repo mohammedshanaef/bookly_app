@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomBookImage extends StatelessWidget {
-  const CustomBookImage({super.key});
+  final String imageUrl;
+  const CustomBookImage({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +17,8 @@ class CustomBookImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           child: Container(
             color: Colors.red,
-            child: SvgPicture.asset(
-              AssetData.jungleBook,
+            child: Image.network(
+              imageUrl,
               fit: BoxFit.cover,
             ),
           ),
