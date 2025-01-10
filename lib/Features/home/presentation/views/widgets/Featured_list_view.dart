@@ -18,6 +18,7 @@ class FeaturedBooksListView extends StatelessWidget {
           return SizedBox(
             height: context.screenHeight * 0.28,
             child: ListView.builder(
+              // physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.books.length,
               itemBuilder: (context, index) {
@@ -28,7 +29,7 @@ class FeaturedBooksListView extends StatelessWidget {
             ),
           );
         } else if (state is FeaturedBooksFailure) {
-          return CustomErrorWidget(errMessage: state.errMessage); // تمرير رسالة الخطأ
+          return CustomErrorWidget(errMessage: state.errMessage);
         } else {
           return const CustomLoadingIndicator();
         }

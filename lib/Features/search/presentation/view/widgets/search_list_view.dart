@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_list_view_item.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:flutter/material.dart';
 
 class SeachListView extends StatelessWidget {
@@ -11,7 +11,7 @@ class SeachListView extends StatelessWidget {
       child: ListView.builder(
           itemCount: 10,
           itemBuilder: ((context, index) {
-            return const BestSellerListViewItem();
+            return const BestSellerListView();
           })),
     );
   }

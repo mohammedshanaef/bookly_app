@@ -1,16 +1,18 @@
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/helper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'package:go_router/go_router.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+class BestListViewItem extends StatelessWidget {
+  const BestListViewItem({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +26,8 @@ class BestSellerListViewItem extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: AspectRatio(
-                aspectRatio: 2.7 / 4,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: SvgPicture.asset(
-                    AssetData.harryPotterBook,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+              child: CustomBookImage(
+                imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
               ),
             ),
             const SizedBox(
@@ -43,23 +38,21 @@ class BestSellerListViewItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: context.screenWidth *
-                        .5, // Width dynamically adjusts based on screen size
+                    width: context.screenWidth * .5, // Width dynamically adjusts based on screen size
                     child: Text(
-                      'Harry Potter and the Goblet of Fire',
+                      bookModel.volumeInfo.title!,
                       style: Styles.textStyle20.copyWith(
                         fontFamily: kGtSectraFine,
                       ),
                       maxLines: 2,
-                      overflow: TextOverflow
-                          .ellipsis, // Adds "..." if text overflows two lines
+                      overflow: TextOverflow.ellipsis, // Adds "..." if text overflows two lines
                     ),
                   ),
                   const SizedBox(
                     height: 3,
                   ),
-                  const Text(
-                    'J.K. Rowling',
+                  Text(
+                    bookModel.volumeInfo.authors![0],
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(
@@ -68,12 +61,13 @@ class BestSellerListViewItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '19.99 €',
-                        style: Styles.textStyle20
-                            .copyWith(fontWeight: FontWeight.bold),
+                        'Free',
+                        style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
-                      const BookRating(),
+                      BookRating(
+                        count: bookModel.volumeInfo.pageCount!,
+                      ),
                     ],
                   ),
                 ],
