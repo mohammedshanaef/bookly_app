@@ -19,9 +19,10 @@ class SimilarBooksListView extends StatelessWidget {
             height: context.screenHeight * 0.16,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
+                itemCount: state.books.length,
                 itemBuilder: (context, index) {
-                  return const CustomBookImage(
-                    imageUrl: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
+                  return CustomBookImage(
+                    imageUrl: state.books[index].volumeInfo.imageLinks?.thumbnail ?? '',
                   );
                 }),
           );
